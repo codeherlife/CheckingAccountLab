@@ -30,6 +30,7 @@ int main(void) {
     if(!(fpIn = fopen("/Users/melanie/Desktop/CSCI 112/CheckingAccountLab/CheckingAccountLab/CheckingAccountLab/account.txt", "r"))) {
         printf("account.txt could not be opened for input.");
         exit(1);
+        //remember to change the above before submitting to professor
     }
     if(!(fpOut = fopen("csis.txt", "w"))) {
         printf("csis.txt could not be opened for output.");
@@ -82,12 +83,14 @@ int main(void) {
                fprintf(fpOut,   "%15s %40.2lf \n", "Initial Balance", *openBalance);
            
            *balance = *openBalance;
+           //??? *service = 3; //the monthly service charge is 3 dollars... is this ok to put here and appropriate?
        }
        
        void deposit(double amount, double *balance, double *service, int *numDeposit, double *amtDeposit){
            
            *balance += amount;
            *amtDeposit += amount;
+           *service = numDeposit 
            (*numDeposit)++;
            
            printf(          "%7s %18.2lf %29.2lf \n", "Deposit", amount, *balance);
@@ -105,6 +108,17 @@ int main(void) {
        }
        
        void outputSummary(int numDeposit, double amtDeposit, int numCheck, double amtCheck, double openBalance, double service, double closeBalance){
+           printf(          "%22s %5d \n", "Total number deposits: ", numDeposit);
+           fprintf(fpOut,   "%22s %5d \n", "Total number deposits: ", numDeposit);
+           
+           printf(          "%22s %5.2lf \n", "Total amount deposits: ", amtDeposit);
+           fprintf(fpOut,   "%22s %5.2lf \n", "Total amount deposits: ", amtDeposit);
+           
+           printf(          "%22s %5.2lf \n", "Total service charge: ", amtDeposit);
+           fprintf(fpOut,   "%22s %5.2lf \n", "Total service charge: ", amtDeposit);
+           
+           //printf(          "%22s %5.2lf \n", "Total service charge: ", amtDeposit);
+           //fprintf(fpOut,   "%22s %5.2lf \n", "Total service charge: ", amtDeposit);
            
            
        }
