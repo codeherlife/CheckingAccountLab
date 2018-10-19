@@ -82,22 +82,29 @@ int main(void) {
                fprintf(fpOut,   "%15s %40.2lf \n", "Initial Balance", *openBalance);
            
            *balance = *openBalance;
-           
-           
        }
        
        void deposit(double amount, double *balance, double *service, int *numDeposit, double *amtDeposit){
            
            *balance += amount;
+           *amtDeposit += amount;
+           (*numDeposit)++;
            
            printf(          "%7s %18.2lf %29.2lf \n", "Deposit", amount, *balance);
            fprintf(fpOut,   "%7s %18.2lf %29.2lf \n", "Deposit", amount, *balance);
        }
        
        void check(double amount, double *balance, double *service, int *numCheck, double *amtCheck){
+           *balance -= amount;
+           *amtCheck += amount;
+           (*numCheck)++;
+           
+           printf(          "%7s %33.2lf %29.2lf \n", "Check", amount, *balance);
+           fprintf(fpOut,   "%7s %33.2lf %29.2lf \n", "Check", amount, *balance);
            
        }
        
        void outputSummary(int numDeposit, double amtDeposit, int numCheck, double amtCheck, double openBalance, double service, double closeBalance){
+           
            
        }
