@@ -90,8 +90,8 @@ int main(void) {
            
            *balance += amount;
            *amtDeposit += amount;
-           *service = numDeposit 
            (*numDeposit)++;
+            *service += .03;
            
            printf(          "%7s %18.2lf %29.2lf \n", "Deposit", amount, *balance);
            fprintf(fpOut,   "%7s %18.2lf %29.2lf \n", "Deposit", amount, *balance);
@@ -99,26 +99,37 @@ int main(void) {
        
        void check(double amount, double *balance, double *service, int *numCheck, double *amtCheck){
            *balance -= amount;
+           
            *amtCheck += amount;
            (*numCheck)++;
+           *service += .06;
            
-           printf(          "%7s %33.2lf %29.2lf \n", "Check", amount, *balance);
-           fprintf(fpOut,   "%7s %33.2lf %29.2lf \n", "Check", amount, *balance);
+           printf(          "%7s %33.2lf %14.2lf \n", "Check", amount, *balance);
+           fprintf(fpOut,   "%7s %33.2lf %14.2lf \n", "Check", amount, *balance);
            
+           //Question: is this correct and ok below???
+           if(*balance < 0){
+               *service += 5.00;
+           }
        }
        
        void outputSummary(int numDeposit, double amtDeposit, int numCheck, double amtCheck, double openBalance, double service, double closeBalance){
+           
+           //how do I ge the closing balance?
+           closeBalance = *balance;
            printf(          "%22s %5d \n", "Total number deposits: ", numDeposit);
            fprintf(fpOut,   "%22s %5d \n", "Total number deposits: ", numDeposit);
            
            printf(          "%22s %5.2lf \n", "Total amount deposits: ", amtDeposit);
            fprintf(fpOut,   "%22s %5.2lf \n", "Total amount deposits: ", amtDeposit);
            
-           printf(          "%22s %5.2lf \n", "Total service charge: ", amtDeposit);
-           fprintf(fpOut,   "%22s %5.2lf \n", "Total service charge: ", amtDeposit);
+           printf(          "%22s %5.2lf \n", "Total service charge: ", service);
+           fprintf(fpOut,   "%22s %5.2lf \n", "Total service charge: ", service);
            
-           //printf(          "%22s %5.2lf \n", "Total service charge: ", amtDeposit);
-           //fprintf(fpOut,   "%22s %5.2lf \n", "Total service charge: ", amtDeposit);
+           printf(          "%22s %5.2lf \n", "Opening Balance: ", openBalance);
+           fprintf(fpOut,   "%22s %5.2lf \n", "Opening Balance: ", openBalance);
            
+           printf(          "%22s %5.2lf \n", "Closing Balance: ", closeBalance);
+           fprintf(fpOut,   "%22s %5.2lf \n", "Closing Balance: ", closeBalance);
            
        }
