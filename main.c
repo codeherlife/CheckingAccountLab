@@ -27,7 +27,7 @@ int main(void) {
     double amtCheck, amtDeposit, openBalance, closeBalance;
     int numCheck, numDeposit;
     
-    if(!(fpIn = fopen("account.txt", "r"))) {
+    if(!(fpIn = fopen("/Users/melanie/Desktop/CSCI 112/CheckingAccountLab/CheckingAccountLab/CheckingAccountLab/account.txt", "r"))) {
         printf("account.txt could not be opened for input.");
         exit(1);
     }
@@ -67,17 +67,31 @@ int main(void) {
     fclose(fpOut);
     return 0;
 }
-       void outputHeaders(void){
-           //print out the transaction, deposit and check, and balance headers on page 230
-           
+       void outputHeaders(){
+
+               printf(     "%11s %14s %14s %14s \n", "TRANSACTION", "DEPOSIT", "CHECK", "BALANCE");
+               fprintf(fpOut, "%11s %14s %14s %14s \n", "TRANSACTION", "DEPOSIT", "CHECK", "BALANCE");
+               
+               printf(     "%11s %14s %14s %14s \n", "-----------", "-------", "-----", "-------");
+               fprintf(fpOut, "%11s %14s %14s %14s \n", "-----------", "-------", "-----", "-------");
        }
        
        void initialBalance(double amount, double *balance, double *service, double *openBalance){
+           *openBalance = amount;
+               printf(          "%15s %40.2lf \n", "Initial Balance", *openBalance);
+               fprintf(fpOut,   "%15s %40.2lf \n", "Initial Balance", *openBalance);
+           
+           *balance = *openBalance;
+           
            
        }
        
        void deposit(double amount, double *balance, double *service, int *numDeposit, double *amtDeposit){
            
+           *balance += amount;
+           
+           printf(          "%7s %18.2lf %29.2lf \n", "Deposit", amount, *balance);
+           fprintf(fpOut,   "%7s %18.2lf %29.2lf \n", "Deposit", amount, *balance);
        }
        
        void check(double amount, double *balance, double *service, int *numCheck, double *amtCheck){
