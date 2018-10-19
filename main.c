@@ -69,11 +69,11 @@ int main(void) {
 }
        void outputHeaders(){
 
-               printf(     "%11s %14s %14s %14s \n", "TRANSACTION", "DEPOSIT", "CHECK", "BALANCE");
-               fprintf(fpOut, "%11s %14s %14s %14s \n", "TRANSACTION", "DEPOSIT", "CHECK", "BALANCE");
+               printf(         "%11s %14s %14s %14s \n", "TRANSACTION", "DEPOSIT", "CHECK", "BALANCE");
+               fprintf(fpOut,  "%11s %14s %14s %14s \n", "TRANSACTION", "DEPOSIT", "CHECK", "BALANCE");
                
-               printf(     "%11s %14s %14s %14s \n", "-----------", "-------", "-----", "-------");
-               fprintf(fpOut, "%11s %14s %14s %14s \n", "-----------", "-------", "-----", "-------");
+               printf(          "%11s %14s %14s %14s \n", "-----------", "-------", "-----", "-------");
+               fprintf(fpOut,   "%11s %14s %14s %14s \n", "-----------", "-------", "-----", "-------");
        }
        
        void initialBalance(double amount, double *balance, double *service, double *openBalance){
@@ -114,6 +114,7 @@ int main(void) {
        void outputSummary(int numDeposit, double amtDeposit, int numCheck, double amtCheck, double openBalance, double service, double closeBalance){
            
            //how do I get the closing balance?
+           //
            //closeBalance = *balance;
            printf(          "%22s %5d \n", "Total number deposits: ", numDeposit);
            fprintf(fpOut,   "%22s %5d \n", "Total number deposits: ", numDeposit);
