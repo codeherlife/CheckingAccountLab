@@ -32,7 +32,7 @@ int main(void) {
         exit(1);
         //***remember to change the above before submitting to professor
     }
-    if(!(fpOut = fopen("csis.txt", "w"))) {
+    if(!(fpOut = fopen("/Users/melanie/Desktop/CSCI 112/CheckingAccountLab/CheckingAccountLab/CheckingAccountLab/csis.txt", "w"))) {
         printf("csis.txt could not be opened for output.");
         exit(1);
     }
@@ -113,11 +113,8 @@ int main(void) {
        
        void outputSummary(int numDeposit, double amtDeposit, int numCheck, double amtCheck, double openBalance, double service, double closeBalance){
            
-           //how do I get the closing balance?
-           //
-           //closeBalance = *balance;
-           printf(          "%22s %5d \n", "Total number deposits: ", numDeposit);
-           fprintf(fpOut,   "%22s %5d \n", "Total number deposits: ", numDeposit);
+           printf(          "%22s %2d \n", "Total number deposits: ", numDeposit);
+           fprintf(fpOut,   "%22s %2d \n", "Total number deposits: ", numDeposit);
            
            printf(          "%22s %5.2lf \n", "Total amount deposits: ", amtDeposit);
            fprintf(fpOut,   "%22s %5.2lf \n", "Total amount deposits: ", amtDeposit);
@@ -125,10 +122,10 @@ int main(void) {
            printf(          "%23s %5.2lf \n", "Total service charge: ", service);
            fprintf(fpOut,   "%23s %5.2lf \n", "Total service charge: ", service);
            
-           printf(          "%22s %5.2lf \n", "Opening Balance: ", openBalance);
-           fprintf(fpOut,   "%22s %5.2lf \n", "Opening Balance: ", openBalance);
+           printf(          "%23s %5.2lf \n", "Opening Balance: ", openBalance);
+           fprintf(fpOut,   "%23s %5.2lf \n", "Opening Balance: ", openBalance);
            
-           printf(          "%22s %5.2lf \n", "Closing Balance: ", closeBalance);
-           fprintf(fpOut,   "%22s %5.2lf \n", "Closing Balance: ", closeBalance);
+           printf(          "%23s %5.2lf \n", "Closing Balance: ", closeBalance);
+           fprintf(fpOut,   "%23s %5.2lf \n", "Closing Balance: ", closeBalance);
            
        }
