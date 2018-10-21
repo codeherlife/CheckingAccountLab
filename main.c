@@ -27,12 +27,11 @@ int main(void) {
     double amtCheck, amtDeposit, openBalance, closeBalance;
     int numCheck, numDeposit;
     
-    if(!(fpIn = fopen("/Users/melanie/Desktop/CSCI 112/CheckingAccountLab/CheckingAccountLab/CheckingAccountLab/account.txt", "r"))) {
+    if(!(fpIn = fopen("account.txt", "r"))) {
         printf("account.txt could not be opened for input.");
         exit(1);
-        //***remember to change the above before submitting to professor
     }
-    if(!(fpOut = fopen("/Users/melanie/Desktop/CSCI 112/CheckingAccountLab/CheckingAccountLab/CheckingAccountLab/csis.txt", "w"))) {
+    if(!(fpOut = fopen("csis.txt", "w"))) {
         printf("csis.txt could not be opened for output.");
         exit(1);
     }
